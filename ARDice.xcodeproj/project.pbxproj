@@ -13,6 +13,8 @@
 		616CF8102B966EAB00296480 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616CF80F2B966EAB00296480 /* ImmersiveView.swift */; };
 		616CF8122B966EAD00296480 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616CF8112B966EAD00296480 /* Assets.xcassets */; };
 		616CF8152B966EAD00296480 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616CF8142B966EAD00296480 /* Preview Assets.xcassets */; };
+		616CF81D2B96780F00296480 /* dice.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 616CF81C2B96780F00296480 /* dice.usdz */; };
+		616CF81F2B9678F900296480 /* coin.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 616CF81E2B9678F900296480 /* coin.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		616CF8112B966EAD00296480 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		616CF8142B966EAD00296480 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		616CF8162B966EAD00296480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		616CF81C2B96780F00296480 /* dice.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = dice.usdz; sourceTree = "<group>"; };
+		616CF81E2B9678F900296480 /* coin.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = coin.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 			children = (
 				616CF80B2B966EAB00296480 /* ARDiceApp.swift */,
 				616CF80D2B966EAB00296480 /* ContentView.swift */,
+				616CF81E2B9678F900296480 /* coin.usdz */,
+				616CF81C2B96780F00296480 /* dice.usdz */,
 				616CF80F2B966EAB00296480 /* ImmersiveView.swift */,
 				616CF8112B966EAD00296480 /* Assets.xcassets */,
 				616CF8162B966EAD00296480 /* Info.plist */,
@@ -146,6 +152,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				616CF8152B966EAD00296480 /* Preview Assets.xcassets in Resources */,
+				616CF81D2B96780F00296480 /* dice.usdz in Resources */,
+				616CF81F2B9678F900296480 /* coin.usdz in Resources */,
 				616CF8122B966EAD00296480 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

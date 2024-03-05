@@ -11,64 +11,30 @@ import RealityKitContent
 
 struct ContentView: View {
 
-    @State private var enlarge = false
-    @State private var showImmersiveSpace = false
-    @State private var immersiveSpaceIsShown = false
-
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-
+    var diceData : DiceData
     var body: some View {
-        VStack {
-            RealityView { content in
-                // Add the initial RealityKit content
-                if let scene = try? await Entity(named: "Scene", in: realityKitContentBundle) {
-                    content.add(scene)
-                }
-            } update: { content in
-                // Update the RealityKit content when SwiftUI state changes
-                if let scene = content.entities.first {
-                    let uniformScale: Float = enlarge ? 1.4 : 1.0
-                    scene.transform.scale = [uniformScale, uniformScale, uniformScale]
-                }
-            }
-            .gesture(TapGesture().targetedToAnyEntity().onEnded { _ in
-                enlarge.toggle()
-            })
-
             VStack (spacing: 12) {
-                Toggle("Enlarge RealityView Content", isOn: $enlarge)
-                    .font(.title)
-
-                Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)
-                    .font(.title)
+                Text(diceData.faceValue == 0 ?  "🎲" : "\(diceData.faceValue)")
+                    .font(.custom("Menlo", size: 100))
+                    .bold()
             }
             .frame(width: 360)
+            .cornerRadius(10)
             .padding(36)
             .glassBackgroundEffect()
-
+            .cornerRadius(10)
+            
+        
+        .task {
+            await openImmersiveSpace(id: "ImmersiveSpace")
+            
         }
-        .onChange(of: showImmersiveSpace) { _, newValue in
-            Task {
-                if newValue {
-                    switch await openImmersiveSpace(id: "ImmersiveSpace") {
-                    case .opened:
-                        immersiveSpaceIsShown = true
-                    case .error, .userCancelled:
-                        fallthrough
-                    @unknown default:
-                        immersiveSpaceIsShown = false
-                        showImmersiveSpace = false
-                    }
-                } else if immersiveSpaceIsShown {
-                    await dismissImmersiveSpace()
-                    immersiveSpaceIsShown = false
-                }
-            }
-        }
+      
     }
 }
 
 #Preview(windowStyle: .volumetric) {
-    ContentView()
+    ContentView(diceData: DiceData())
 }
